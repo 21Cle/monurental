@@ -1,9 +1,7 @@
 <div class="container pt-3 pb-3">
   <div class="row">
     <div class="d-flex">
-      <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key crop: :fill %></div>
-      <div class="p-2 w-25"><%= cl_image_tag @monument.photo.key crop: :fill %></div>
-      <div class="p-2 w-25"><%= cl_image_tag @monument.photo.key crop: :fill %></div>
+      <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
     </div>
     <div class="border rounded shadow-sm">
       <h2><%= @monument.name %></h2>
@@ -12,5 +10,6 @@
       <p class="fw-light"><%= @monument.description %></p>
       <p class="fw-light"><strong>Utilities: </strong><%= @monument.utilities %></p>
     </div>
+    <p><%= link_to "Back", monuments_path(@monuments) %></p>
   </div>
 </div>
