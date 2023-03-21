@@ -5,5 +5,10 @@ class MonumentsController < ApplicationController
 
   def show
     @monument = Monument.find(params[:id])
+
+  private
+
+  def monument_params
+    params.require(:monument).permit(:photo)
   end
 end
