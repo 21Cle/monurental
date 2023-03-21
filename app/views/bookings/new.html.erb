@@ -1,0 +1,6 @@
+<%= simple_form_for([@monument, @booking] do |f|)  %>
+<%= f.input :arrival_date %>
+<%= f.input :departure_date %>
+<%= f.input :user_request, placeholder: "Any special request so we can set up the best party of your life?" %>
+<%= f.submit %>
+<% end %>
