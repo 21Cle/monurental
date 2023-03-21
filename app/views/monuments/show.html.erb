@@ -1,0 +1,16 @@
+<div class="container pt-3 pb-3">
+  <div class="row">
+    <div class="d-flex">
+      <div class="p-2 w-50"><img src="<%= cl_image_tag @monument.photo.key crop: :fill %>" class="img-fluid" alt="..."></div>
+      <div class="p-2 w-25"><img src="<%= cl_image_tag @monument.photo.key crop: :fill %>" class="img-fluid" alt="..."></div>
+      <div class="p-2 w-25"><img src="<%= cl_image_tag @monument.photo.key crop: :fill %>" class="img-fluid" alt="..."></div>
+    </div>
+    <div class="border rounded shadow-sm">
+      <h2><%= @monument.name %></h2>
+      <p class="card-text"><small class="text-muted"><i><%= @monument.location %> - <%= @monument.city %> - <%= @monument.country %></i></small></p>
+      <p class="card-text"><small class="text-muted">Rating: <%= @monument.rating %>    Capacity: <%= @monument.capacity %></small></p>
+      <p class="fw-light"><%= @monument.description %></p>
+      <p class="fw-light"><strong>Utilities: </strong><%= @monument.utilities %></p>
+    </div>
+  </div>
+</div>
