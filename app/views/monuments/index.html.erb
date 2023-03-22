@@ -5,14 +5,14 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @monuments.each do |monument| %>
           <div class="col">
-            <div class="card h-100 shadow-sm">
-              <%= cl_image_tag monument.photo.key, height: 300, crop: :scale %>
+            <div class="card h-100 shadow-sm" type="button">
+              <div class="row-cols-md-1"><%= cl_image_tag monument.photo.key, height: 300, crop: :scale %></div>
               <div class="card-body">
                 <h5 class="card-title"><%= monument.name %></h5>
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
                 <p class="fw-light"><%= monument.theme %></p>
                 <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
-                <%= link_to "xx", monument, class="stretched-link" %>
+                <p><%= link_to "Details", monument_path(monument) %></p>
               </div>
             </div>
           </div>

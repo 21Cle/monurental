@@ -1,0 +1,44 @@
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="true">My bookings</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="monuments-tab" data-bs-toggle="tab" data-bs-target="#monuments" type="button" role="tab" aria-controls="monuments" aria-selected="false">My monuments</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="???-tab" data-bs-toggle="tab" data-bs-target="#???" type="button" role="tab" aria-controls="???" aria-selected="false">???</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="home-tab">
+      <%# Div des bookings %>
+      <div class="my-bookings">
+      <% @bookings.each do |booking| %>
+      <%= booking.user_request booking.arrival_date booking.departure_date booking.booking_status %>
+      <% end %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="monuments" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @owner_monuments.each do |monument| %>
+          <div class="col">
+            <div class="card h-100 shadow-sm" type="button">
+              <div class="row-cols-md-1"><%= cl_image_tag monument.photo.key, height: 300, crop: :scale %></div>
+              <div class="card-body">
+                <h5 class="card-title"><%= monument.name %></h5>
+                <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
+                <p class="fw-light"><%= monument.theme %></p>
+                <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
+                <p><%= link_to "Details", monument_path(monument) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="???" role="tabpanel" aria-labelledby="???-tab">
+    <%# ??? %>
+    </div>
+  </div>
+</div>

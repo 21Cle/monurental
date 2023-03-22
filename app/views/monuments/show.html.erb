@@ -2,8 +2,6 @@
   <div class="row mb-3">
     <div class="d-flex">
       <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
-      <div class="p-2 w-25"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
-      <div class="p-2 w-25"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
     </div>
   </div>
   <div class="row gx-5">
@@ -14,6 +12,7 @@
       <p class="fw-light"><%= @monument.description %></p>
       <p class="fw-light"><strong>Utilities: </strong><%= @monument.utilities %></p>
     </div>
+
     <div class="border rounded shadow-sm pt-3 pb-3 col-4">
       <div class="d-flex justify-content-between">
         <h3><strong><%= @monument.price_per_night %></strong>£/night</h3>
@@ -26,5 +25,8 @@
         <%= f.submit %>
       <% end %>
     </div>
+    
+    <p><%= link_to "Back", monuments_path(@monuments) %></p>
+
   </div>
 </div>
