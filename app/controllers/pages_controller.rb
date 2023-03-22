@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     @bookings = current_user.bookings
     @owner_bookings = current_user.bookings_as_owner
     @owner_monuments = current_user.monuments
+    raise
   end
 end
