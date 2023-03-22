@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @monument = Monument.find(params[:monument_id])
     @booking = Booking.new(booking_params)
     @booking.monument = @monument
+    @booking.user = current_user
     @booking.save
 
     redirect_to dashboard_path
