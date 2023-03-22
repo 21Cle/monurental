@@ -6,13 +6,19 @@
   </div>
   <div class="row gx-5">
     <div class="border rounded shadow-sm pt-3 pb-3 col-8">
+      <div class="pb-2 mb-2 border-bottom">
       <h2><%= @monument.name %></h2>
       <p class="card-text"><small class="text-muted"><i class="fa-solid fa-map-pin"></i>    <i><%= @monument.address %> - <%= @monument.country %></i></small></p>
-      <p class="card-text"><small class="text-muted"><i class="fa-solid fa-family-pants"></i>  <%= @monument.capacity %></small></p>
+      <p class="card-text"><small class="text-muted"><i class="fa-solid fa-people-group"></i>    <%= @monument.capacity %></small></p>
+      </div>
+      <div class="pb-2 mb-2 border-bottom">
       <p class="fw-light"><%= @monument.description %></p>
-      <p class="fw-light"><strong>Utilities: </strong><%= @monument.utilities %></p>
+      </div>
+      <div class="pb-2 mb-5 border-bottom">
+      <p class="fw-light"><strong><i class="fa-solid fa-list-ul"></i>    Utilities: </strong><%= @monument.utilities %></p>
+      </div>
+      <%= button_to "Back to list", monuments_path(@monuments), method: :get, class:"btn btn-primary" %>
     </div>
-
     <div class="border rounded shadow-sm pt-3 pb-3 col-4">
       <div class="d-flex justify-content-between">
         <h3><strong><%= @monument.price_per_night %></strong>£/night</h3>
@@ -25,8 +31,5 @@
         <%= f.submit %>
       <% end %>
     </div>
-    
-    <p><%= link_to "Back", monuments_path(@monuments) %></p>
-
   </div>
 </div>
