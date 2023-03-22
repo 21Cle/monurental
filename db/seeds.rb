@@ -7,8 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+Booking.destroy_all
 Monument.destroy_all
 User.destroy_all
+
 
 puts "going to create monuments"
 user1 = User.create!(email: "user@gmail.com", password: "123456")
