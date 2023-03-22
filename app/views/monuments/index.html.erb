@@ -12,7 +12,7 @@
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
                 <p class="fw-light"><%= monument.theme %></p>
                 <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
-                <p><%= link_to "Details", monument_path(monument) %></p>
+                <%= button_to "More info", monument, method: :get, class:"btn btn-primary stretched-link" %>
               </div>
             </div>
           </div>
