@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 700px 0;
+  padding: 400px 0;
 }
 
 .banner video {
@@ -15,8 +15,10 @@
 }
 
 .banner h1 {
-  font-size: 50px;
+  font-size: 80px;
   color: yellow;
+  font-family: 'Alkatra', cursive;
+  text-align: center;
   opacity: 0.9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -26,14 +28,14 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   opacity: 0.9;
-
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 60px;
   color: white;
   opacity: 0.9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
 .footer {
