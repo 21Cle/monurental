@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @monument = Monument.find(params[:id])
     @booking = Booking.new
