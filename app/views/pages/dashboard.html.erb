@@ -13,6 +13,11 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="home-tab">
       <%# Div des bookings %>
+      <div class="my-bookings">
+      <% @bookings.each do |booking| %>
+      <%= booking.user_request booking.arrival_date booking.departure_date booking.booking_status %>
+      <% end %>
+      </div>
     </div>
     <div class="tab-pane fade" id="monuments" role="tabpanel" aria-labelledby="profile-tab">
     <%# Div des monuments bookings %>
