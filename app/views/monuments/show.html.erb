@@ -1,15 +1,32 @@
 <div class="container pt-3 pb-3">
-  <div class="row">
+  <div class="row mb-3">
     <div class="d-flex">
       <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
     </div>
-    <div class="border rounded shadow-sm">
+  </div>
+  <div class="row gx-5">
+    <div class="border rounded shadow-sm pt-3 pb-3 col-8">
       <h2><%= @monument.name %></h2>
-      <p class="card-text"><small class="text-muted"><i><%= @monument.address %> - <%= @monument.city %> - <%= @monument.country %></i></small></p>
-      <p class="card-text"><small class="text-muted">Rating: <%= @monument.rating %>    Capacity: <%= @monument.capacity %></small></p>
+      <p class="card-text"><small class="text-muted"><i class="fa-solid fa-map-pin"></i>    <i><%= @monument.address %> - <%= @monument.country %></i></small></p>
+      <p class="card-text"><small class="text-muted"><i class="fa-solid fa-family-pants"></i>  <%= @monument.capacity %></small></p>
       <p class="fw-light"><%= @monument.description %></p>
       <p class="fw-light"><strong>Utilities: </strong><%= @monument.utilities %></p>
     </div>
+
+    <div class="border rounded shadow-sm pt-3 pb-3 col-4">
+      <div class="d-flex justify-content-between">
+        <h3><strong><%= @monument.price_per_night %></strong>£/night</h3>
+        <p><i class="fa-solid fa-star-half-stroke"></i>  <%= @monument.rating %></p>
+      </div>
+      <%= simple_form_for([@monument, @booking]) do |f|  %>
+        <%= f.input :arrival_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :departure_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :user_request, placeholder: "Any special request so we can set up the best party of your life?" %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    
     <p><%= link_to "Back", monuments_path(@monuments) %></p>
+
   </div>
 </div>
