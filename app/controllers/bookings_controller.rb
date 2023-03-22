@@ -9,6 +9,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.monument = @monument
     @booking.save
+
+    redirect_to dashboard_path
   end
 
   def show
