@@ -1,0 +1,16 @@
+
+<div class="container">
+  <%= simple_form_for @monument do |f| %>
+  <%= f.input :name, as: :string %>
+  <%= f.input :address, as: :string %>
+  <%= f.input :price_per_night, as: :integer %>
+  <%= f.input :capacity, as: :integer %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :utilities, as: :string %>
+  <%= f.input :theme, as: :string %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+  <% end %>
+
+  <%= link_to "Back to my dashboard", dashboard_path %>
+</div>
