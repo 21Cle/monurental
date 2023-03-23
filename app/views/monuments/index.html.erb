@@ -6,7 +6,7 @@
         <% @monuments.each do |monument| %>
           <div class="col">
             <div class="card h-100 shadow-sm" type="button">
-              <div class="row-cols-md-1"><%= cl_image_tag monument.photo.key, :class => "monu-image", :transformation => { height: 300, crop: :pad } %></div>
+              <%= cl_image_tag monument.photo.key, crop: :fill, class:"card-img-top" %>
               <div class="card-body">
                 <h5 class="card-title"><%= monument.name %></h5>
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
@@ -20,8 +20,11 @@
       </div>
     </div>
     <div class="col-4">
-
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19522.87752604562!2d-0.15516534696179216!3d51.49976612465006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760520cd5b5eb5%3A0xa26abf514d902a7!2sBuckingham%20Palace!5e0!3m2!1sen!2sae!4v1679399899721!5m2!1sen!2sae" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-100 w-100 border rounded"></iframe>
+      <div class="border rounded" style="width: 100%; height: 100%;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
 </div>
