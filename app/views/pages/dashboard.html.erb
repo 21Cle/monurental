@@ -30,7 +30,7 @@
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
                 <p class="fw-light"><%= monument.theme %></p>
                 <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
-                <p><%= link_to "Details", monument_path(monument) %></p>
+                <><%= link_to "Details", monument_path(monument) %></p>
               </div>
             </div>
           </div>
@@ -46,4 +46,12 @@
     <%# ??? %>
     </div>
   </div>
+     <div class="cards-bookings">
+        <% @bookings.each do |booking| %>
+        <div class= "card-body">
+          <li class="card-title"><strong><%= booking.user.email %></strong> booked <%= booking.monument.name %> from <strong><%= booking.arrival_date %></strong> to <strong><%= booking.departure_date %></strong>.</li>
+          <li class="card-text d-flex"><%= button_to '✔', accept_booking_path(booking), class: "text-success",  method: :patch%> - <%= button_to '❌', decline_booking_path(booking), class:"text-danger", method: :patch%>. Status: <strong></strong><%= booking.booking_status %></strong></li>
+        </div>
+        <% end %>
+      </div>
 </div>
