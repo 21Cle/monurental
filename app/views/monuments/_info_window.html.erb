@@ -1,0 +1,8 @@
+<div class="card">
+  <%= cl_image_tag monument.photo.key, crop: :fill, class:"card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= monument.name %></h5>
+    <p class="card-text"><%= monument.address %></p>
+    <%= button_to "More info", monument, method: :get, class:"btn btn-primary" %>
+  </div>
+</div>
