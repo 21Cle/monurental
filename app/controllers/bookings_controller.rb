@@ -27,17 +27,19 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = 'accepted'
+    @booking.update(booking_status: 'accepted')
+    redirect_to dashboard_path
   end
 
   def decline
     @booking = Booking.find(params[:id])
-    @booking.status = 'declined'
+    @booking.update(booking_status: 'declined')
+    redirect_to dashboard_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:arrival_date, :departure_date, :user_request, :price, :number_of_guests)
+    params.require(:booking).permit(:arrival_date, :departure_date, :user_request, :price, :number_of_guests, :booking_status)
   end
 end

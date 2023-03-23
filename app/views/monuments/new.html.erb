@@ -1,0 +1,19 @@
+<div class="container cont-onglets">
+  <div class="container">
+    <%= simple_form_for @monument do |f| %>
+    <%= f.input :name, as: :string %>
+    <%= f.input :address, as: :string %>
+    <%= f.input :price_per_night, as: :integer %>
+    <%= f.input :capacity, as: :integer %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :utilities, as: :string %>
+    <%= f.input :theme, as: :string %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class:"btn btn-warning d-grid gap-2 yellow-btn" %>
+    <% end %>
+
+    <div class="center-btn d-grid gap-2">
+      <%= button_to "Back", dashboard_path, method: :get, class:"btn btn-outline-warning yellow-btn"%>
+    </div>
+  </div>
+</div>

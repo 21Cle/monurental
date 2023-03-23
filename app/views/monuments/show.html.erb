@@ -1,7 +1,7 @@
 <div class="container pt-3 pb-3">
-  <div class="row mb-3">
+  <div class="row mb-3 center-img">
     <div class="d-flex">
-      <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key, crop: :fill %></div>
+      <div class="p-2 w-50"><%= cl_image_tag @monument.photo.key, :class => "monu-image", :transformation => { height: 500, crop: :pad } %></div>
     </div>
   </div>
   <div class="row gx-5">
