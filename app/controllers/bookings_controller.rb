@@ -9,6 +9,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.monument = @monument
     @booking.user = current_user
+
+    @days = (@booking.departure_date - @booking.arrival_date).to_i
+    @price = @days * @monument.price_per_night
+    @booking.price = @price
+    @booking.days = @days
+    @booking.number_of_guests = @number_of_guests
+
     @booking.save
 
     redirect_to dashboard_path
@@ -33,6 +40,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:arrival_date, :departure_date, :user_request, :booking_status)
+    params.require(:booking).permit(:arrival_date, :departure_date, :user_request, :price, :number_of_guests, :booking_status)
   end
 end
