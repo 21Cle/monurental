@@ -11,14 +11,14 @@ Booking.destroy_all
 Monument.destroy_all
 User.destroy_all
 
-
 puts "going to create monuments"
 user1 = User.create!(email: "user@gmail.com", password: "123456")
-monument1 = Monument.create!(name: "Big Ben", address: "London SW1A 0AA, United Kingdom", price_per_night: 2500, capacity:200, description: "It's a big clock named Ben", rating: 4.2, theme: "neo-gothic", city: "London", country: "England", user_id: user1.id)
-monument2 = Monument.create!(name: "Tour Eiffel", address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", price_per_night: 2800, capacity: 2000, description: "That big metal thingy in the middle of Paris", rating: 3.8, theme: "baroque", city: "Paris", country: "France", user_id: user1.id)
-monument3 = Monument.create!(name: "Taj Mahal", address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India", price_per_night: 8200, capacity: 5000, description: "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.", rating: 4.9, theme: "mausoleum", city: "Agra", country: "India", user_id: user1.id)
-monument4 = Monument.create!(name: "The Great Pyramid of Giza", address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201, Egypt", price_per_night: 3700, capacity: 930, description: "The Great Pyramid of Giza is the largest Egyptian pyramid and the tomb of Fourth Dynasty pharaoh Khufu", rating: 4.8, theme: "antiquity", city: "Giza", country: "Egypt", user_id: user1.id)
-monument5 = Monument.create!(name: "Château de Versailles", address: "Place d'Armes, 78000 Versailles", price_per_night: 8600, capacity: 5700, description: "The Palace of Versailles is a former royal residence built by King Louis XIV located in Versailles, about 12 miles west of Paris, France.", rating: 3.1, theme: "baroque", city: "Versailles", country: "France", user_id: user1.id)
+user2 = User.create!(email: "user2@gmail.com", password: "123456")
+monument1 = Monument.create!(name: "Big Ben", address: "London SW1A 0AA, United Kingdom", price_per_night: 2500, capacity:200, description: "It's a big clock named Ben", rating: 4.2, theme: "Clock", city: "London", country: "England", user_id: user1.id)
+monument2 = Monument.create!(name: "Tour Eiffel", address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", price_per_night: 2800, capacity: 2000, description: "That big metal thingy in the middle of Paris", rating: 3.8, theme: "Antenna", city: "Paris", country: "France", user_id: user1.id)
+monument3 = Monument.create!(name: "Taj Mahal", address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India", price_per_night: 8200, capacity: 5000, description: "Would Mumtaz Mahal and Shah Jahan approve of you partying in their last resting place? Probably not. But we won't tell if you don't.", rating: 4.9, theme: "Mausoleum", city: "Agra", country: "India", user_id: user1.id)
+monument4 = Monument.create!(name: "The Great Pyramid of Giza", address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201, Egypt", price_per_night: 3700, capacity: 930, description: "Big Triangular Tomb of a guy named Khufu. We do not take responsibility if you get lost in there.", rating: 4.8, theme: "Tomb", city: "Giza", country: "Egypt", user_id: user2.id)
+monument5 = Monument.create!(name: "Château de Versailles", address: "Place d'Armes, 78000 Versailles", price_per_night: 8600, capacity: 5700, description: "Some guy named Louis used to party in there. He doesn't have all of his head now so he can't anymore, But you can!", rating: 3.1, theme: "Pompous Castle", city: "Versailles", country: "France", user_id: user2.id)
 # Monument.create!(name:, address:, price_per_night:, capacity:, description:, rating:, theme:, city:, country:, user_id: user1.id)
 # Monument.create!(name:, address:, price_per_night:, capacity:, description:, rating:, theme:, city:, country:, user_id: user1.id)
 # Monument.create!(name:, address:, price_per_night:, capacity:, description:, rating:, theme:, city:, country:, user_id: user1.id)
