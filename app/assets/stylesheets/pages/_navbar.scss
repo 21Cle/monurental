@@ -1,0 +1,21 @@
+.navbar {
+  background: grayscale($color: #adb5bd);
+  border-bottom: 1px solid rgb(148, 147, 147);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0px 50px;
+}
+
+.nav-link {
+background-color: rgb(222, 207, 168);
+border: solid rgb(148, 147, 147) 1px;
+font-weight: bold;
+border-radius: 10px;
+margin-right: 40px;
+padding: 10px;
+}
+
+.nav-link:hover {
+  transition: 0.3s;
+  background-color: yellow;
+}
