@@ -19,8 +19,8 @@
       <% end %>
       </div>
     </div>
-    <div class="tab-pane fade" id="monuments" role="tabpanel" aria-labelledby="profile-tab">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="tab-pane fade cont-onglets" id="monuments" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="row row-cols-1 row-cols-md-3 g-4 pt-3">
         <% @owner_monuments.each do |monument| %>
           <div class="col">
             <div class="card h-100 shadow-sm" type="button">
@@ -35,8 +35,12 @@
             </div>
           </div>
         <% end %>
-        <%= link_to "Add a monument", new_monument_path %>
       </div>
+        <div class="center-btn d-grid gap-2">
+          <%= button_to new_monument_path, method: :get, class:"btn btn-outline-warning yellow-btn" do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        </div>
     </div>
     <div class="tab-pane fade" id="???" role="tabpanel" aria-labelledby="???-tab">
     <%# ??? %>
