@@ -24,23 +24,23 @@ monument5 = Monument.create!(name: "Château de Versailles", address: "Place d'A
 # Monument.create!(name:, address:, price_per_night:, capacity:, description:, rating:, theme:, city:, country:, user_id: user1.id)
 # Monument.create!(name:, address:, price_per_night:, capacity:, description:, rating:, theme:, city:, country:, user_id: user1.id)
 
-file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679406348/cloudibigben_j2z2fm.jpg")
+file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581650/bigben1920x1080_nu1tdg.jpg")
 monument1.photo.attach(io: file, filename: "bigben.png", content_type: "image/png")
 monument1.save
 
-file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679407277/cloudieiffel_iiztbv.jpg")
+file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581660/eiffel-tower-hd-hf-1920x1080_ddy5dr.jpg")
 monument2.photo.attach(io: file, filename: "toureiffel.png", content_type: "image/png")
 monument2.save
 
-file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679407277/clouditajmahal_lcrx5g.jpg")
+file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581688/tajmahal1920x1080_kxuzdj.jpg")
 monument3.photo.attach(io: file, filename: "tajmahal.png", content_type: "image/png")
 monument3.save
 
-file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679407277/cloudipyramide_emzub8.jpg")
+file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581672/pyramid1920x1080_l2nx2g.webp")
 monument4.photo.attach(io: file, filename: "pyramid.png", content_type: "image/png")
 monument4.save
 
-file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679407277/cloudiversailles_frr6jd.jpg")
+file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581689/versailles1920x1080_vt8v4n.jpg")
 monument5.photo.attach(io: file, filename: "versailles.png", content_type: "image/png")
 monument5.save
 

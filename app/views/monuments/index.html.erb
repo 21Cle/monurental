@@ -6,7 +6,7 @@
         <% @monuments.each do |monument| %>
           <div class="col">
             <div class="card h-100 shadow-sm" type="button">
-              <div class="row-cols-md-1"><%= cl_image_tag monument.photo.key, height: 300, crop: :scale %></div>
+              <div class="row-cols-md-1"><%= cl_image_tag monument.photo.key, :class => "monu-image", :transformation => { height: 300, crop: :pad } %></div>
               <div class="card-body">
                 <h5 class="card-title"><%= monument.name %></h5>
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
