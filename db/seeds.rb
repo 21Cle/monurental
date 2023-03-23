@@ -12,8 +12,8 @@ Monument.destroy_all
 User.destroy_all
 
 puts "going to create monuments"
-user1 = User.create!(email: "user@gmail.com", password: "123456")
-user2 = User.create!(email: "user2@gmail.com", password: "123456")
+user1 = User.create!(first_name: "Ndwali", email: "user@gmail.com", password: "123456")
+user2 = User.create!(first_name: "Clémence", email: "user2@gmail.com", password: "123456")
 monument1 = Monument.create!(name: "Big Ben", address: "London SW1A 0AA, United Kingdom", price_per_night: 2500, capacity:200, description: "It's a big clock named Ben", rating: 4.2, theme: "Clock", city: "London", country: "England", user_id: user1.id)
 monument2 = Monument.create!(name: "Tour Eiffel", address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", price_per_night: 2800, capacity: 2000, description: "That big metal thingy in the middle of Paris", rating: 3.8, theme: "Antenna", city: "Paris", country: "France", user_id: user1.id)
 monument3 = Monument.create!(name: "Taj Mahal", address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India", price_per_night: 8200, capacity: 5000, description: "Would Mumtaz Mahal and Shah Jahan approve of you partying in their last resting place? Probably not. But we won't tell if you don't.", rating: 4.9, theme: "Mausoleum", city: "Agra", country: "India", user_id: user1.id)
