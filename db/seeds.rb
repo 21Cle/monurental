@@ -5,13 +5,14 @@ Monument.destroy_all
 User.destroy_all
 
 puts "going to create monuments"
-user1 = User.create!(first_name: "Ndwali", email: "user@gmail.com", password: "123456")
-user2 = User.create!(first_name: "Clémence", email: "user2@gmail.com", password: "123456")
-monument1 = Monument.create!(name: "Big Ben", address: "London SW1A 0AA, United Kingdom", price_per_night: 2500, capacity:200, description: "It's a big clock named Ben", rating: 4.2, utilities: "pool", theme: "Clock", city: "London", country: "England", user_id: user1.id)
-monument2 = Monument.create!(name: "Tour Eiffel", address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", price_per_night: 2800, capacity: 2000, description: "That big metal thingy in the middle of Paris", rating: 3.8, theme: "Antenna", city: "Paris", country: "France", user_id: user1.id)
-monument3 = Monument.create!(name: "Taj Mahal", address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India", price_per_night: 8200, capacity: 5000, description: "Would Mumtaz Mahal and Shah Jahan approve of you partying in their last resting place? Probably not. But we won't tell if you don't.", rating: 4.9, theme: "Mausoleum", city: "Agra", country: "India", user_id: user1.id)
-monument4 = Monument.create!(name: "The Great Pyramid of Giza", address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201, Egypt", price_per_night: 3700, capacity: 930, description: "Big Triangular Tomb of a guy named Khufu. We do not take responsibility if you get lost in there.", rating: 4.8, theme: "Tomb", city: "Giza", country: "Egypt", user_id: user2.id)
-monument5 = Monument.create!(name: "Palace of Versailles", address: "Place d'Armes, 78000 Versailles", price_per_night: 8600, capacity: 5700, description: "Some guy named Louis used to party in there. He doesn't have all of his head now so he can't anymore, But you can!", rating: 3.1, theme: "Pompous Castle", city: "Versailles", country: "France", user_id: user2.id)
+user1 = User.create!(first_name: "Ndwali", last_name: "lorem", email: "user@gmail.com", password: "123456")
+user2 = User.create!(first_name: "Clémence", last_name: "ipsum", email: "user2@gmail.com", password: "123456")
+monument1 = Monument.create!(name: "Big Ben", address: "London SW1A 0AA", price_per_night: 2500, capacity:200, description: "It's a big clock named Ben", rating: 4.2, theme: "Clock", city: "London", country: "United Kingdom", user_id: user1.id, latitude: 51.5007325, longitude: -0.1249943)
+monument2 = Monument.create!(name: "Tour Eiffel", address: "Champ de Mars, 5 Av. Anatole France, 75007 Paris", price_per_night: 2800, capacity: 2000, description: "That big metal thingy in the middle of Paris", rating: 3.8, theme: "Antenna", city: "Paris", country: "France", user_id: user1.id, latitude: 48.8583736, longitude: 2.2922926)
+monument3 = Monument.create!(name: "Taj Mahal", address: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001", price_per_night: 8200, capacity: 5000, description: "Would Mumtaz Mahal and Shah Jahan approve of you partying in their last resting place? Probably not. But we won't tell if you don't.", rating: 4.9, theme: "Mausoleum", city: "Agra", country: "India", user_id: user1.id, latitude: 27.1750855, longitude: 78.0414265)
+monument4 = Monument.create!(name: "The Great Pyramid of Giza", address: "Al Haram, Nazlet El-Semman, Al Giza Desert, Giza Governorate 3512201", price_per_night: 3700, capacity: 930, description: "Big Triangular Tomb of a guy named Khufu. We do not take responsibility if you get lost in there.", rating: 4.8, theme: "Tomb", city: "Giza", country: "Egypt", user_id: user2.id, latitude: 29.9792391, longitude: 31.1320132)
+monument5 = Monument.create!(name: "Château de Versailles", address: "Place d'Armes, 78000 Versailles", price_per_night: 8600, capacity: 5700, description: "Some guy named Louis used to party in there. He doesn't have all of his head now so he can't anymore, But you can!", rating: 3.1, theme: "Pompous Castle", city: "Versailles", country: "France", user_id: user2.id, latitude: 48.8049426, longitude: 2.1198078)
+
 monument6 = Monument.create!(name: "The Great Wall of China", address: "Huairou District, China", price_per_night: 7200, capacity: 8000, description: "The Great Wall of China, one of the most iconic landmarks in the world, is the ultimate party destination. Imagine celebrating on top of one of the Seven Wonders of the World, with a view that goes on for miles.
   The Great Wall of China, which stretches over 13,000 miles, is a testament to the Chinese people's incredible engineering skills and perseverance. The Wall, which dates back to the 7th century BC, is not just a wonder of ancient architecture but also a symbol of China's rich history and culture. As the owner of this magnificent structure, I can attest to the magic that it brings to any event.
   When you book your event at the Great Wall of China, you can choose to celebrate at different sections of the wall, each with its own unique charm. You can have a small gathering at Mutianyu or Jinshanling, both of which are less crowded and offer breathtaking views of the surrounding landscape. Alternatively, you can choose to celebrate at the most popular section of the wall, Badaling, which offers an electrifying atmosphere and a chance to be part of history.
@@ -47,6 +48,49 @@ monument14 = Monument.create!(name: "Chichen Itza", address: "Yucatán, Mexico",
 monument15 = Monument.create!(name: "Christ the Redeemer", address: "Parque Nacional da Tijuca, Alto da Boa Vista, Rio de Janeiro - RJ, 22241-330, Brazil", price_per_night: 5000, capacity: 1000, description: "Celebrate with Jesus on top of the Corcovado mountain, overlooking the beautiful city of Rio de Janeiro.", rating: 4.6, theme: "Statue", city: "Rio de Janeiro", country: "Brazil", user_id: user1.id, utilities: ["Sound system", "Lighting", "Catering", "VIP seating", "Photographer", "Security", "Bartender", "Wait staff", "Parking", "Stage", "Decorations", "Projection screens", "Smoke machines", "Confetti cannons", "Fireworks", "Karaoke machine", "Photo booth", "Strobe lights", "Uplighting", "Virtual reality experience", "Live music", "Brazilian dance class", "Cocktail bar", "Giant Jenga game", "Outdoor cinema", "Brazilian BBQ grill", "Caipirinha bar", "Samba dance party"])
 monument16 = Monument.create!(name: "Statue of Liberty", address: "Liberty Island, New York, NY 10004, United States", price_per_night: 3200, capacity: 1000, description: "A colossal neoclassical statue located on Liberty Island in New York Harbor in the United States, commemorating the country's independence.", rating: 4.5, theme: "Statue", city: "New York City", country: "United States", user_id: user2.id)
 
+monument6.latitude = 40.431908
+monument6.longitude = 116.568905
+monument6.save
+
+monument7.latitude = 41.890251
+monument7.longitude = 12.492373
+monument7.save
+
+monument8.latitude = -13.163136
+monument8.longitude = -72.545585
+monument8.save
+
+monument9.latitude = 13.412469
+monument9.longitude = 103.866986
+monument9.save
+
+monument10.latitude = 30.328460
+monument10.longitude = 35.442742
+monument10.save
+
+monument11.latitude = 37.809528
+monument11.longitude = -122.476066
+monument11.save
+
+monument12.latitude = 51.178882
+monument12.longitude = -1.826215
+monument12.save
+
+monument13.latitude = 37.971523
+monument13.longitude = 23.725227
+monument13.save
+
+monument14.latitude = 20.683119
+monument14.longitude = -88.568406
+monument14.save
+
+monument15.latitude = -22.951873
+monument15.longitude = -43.210191
+monument15.save
+
+monument16.latitude = 40.689249
+monument16.longitude = -74.044500
+monument16.save
 
 file = URI.open("https://res.cloudinary.com/dfi1s3ujq/image/upload/v1679581650/bigben1920x1080_nu1tdg.jpg")
 monument1.photo.attach(io: file, filename: "bigben.png", content_type: "image/png")
