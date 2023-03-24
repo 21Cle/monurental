@@ -3,9 +3,45 @@
   margin-bottom: 40px;
   height: 80px;
   width: 100%;
+  box-shadow: 1px 1px 4px grey;
 }
 
 .center-btn {
   display: flex;
   align-items: center;
+}
+
+.btn-warning {
+  background-color: #FFD966 !important;
+}
+
+.btn-outline-warning {
+  background-color: #FFF2CC !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: #FFD966 !important;
+}
+
+.small-btn {
+  background-color: #FFF2CC !important;
+  border: solid 1px #FFD966 !important;
+  color: #F4B183 !important;
+}
+
+.small-btn:hover {
+  background-color: #FFD966 !important;
+  color: white !important;
+}
+
+.dash-btn {
+  background-color: #FFD966;
+}
+
+.dash-btn:hover {
+  background-color: #FFF2CC;
+}
+
+.top-tab {
+  color: #DFA67B !important;
 }

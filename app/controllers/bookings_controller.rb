@@ -27,13 +27,13 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.update(booking_status: 'accepted')
+    @booking.update(booking_status: 'Accepted!')
     redirect_to dashboard_path
   end
 
   def decline
     @booking = Booking.find(params[:id])
-    @booking.update(booking_status: 'declined')
+    @booking.update(booking_status: 'Declined...')
     redirect_to dashboard_path
   end
 

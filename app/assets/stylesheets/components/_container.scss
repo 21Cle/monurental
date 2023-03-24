@@ -1,4 +1,15 @@
+.top-tab {
+  box-shadow: 1px 0px lightgray;
+  padding-bottom: 20px;
+  margin-top: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .cont-onglets {
-  margin-top: 50px;
+  padding: 50px;
   margin-bottom: 50px;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  box-shadow: 1px 1px 6px grey;
 }

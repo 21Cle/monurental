@@ -1,26 +1,32 @@
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active m-2" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="true">My bookings</button>
+
+      <button class="nav-link active m-2 top-tab" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="true">My bookings</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link m-2" id="monuments-tab" data-bs-toggle="tab" data-bs-target="#monuments" type="button" role="tab" aria-controls="monuments" aria-selected="false">My monuments</button>
+      <button class="nav-link m-2 top-tab" id="monuments-tab" data-bs-toggle="tab" data-bs-target="#monuments" type="button" role="tab" aria-controls="monuments" aria-selected="false">My monuments</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link m-2" id="owner-tab" data-bs-toggle="tab" data-bs-target="#owner" type="button" role="tab" aria-controls="owner" aria-selected="false">My monuments' bookings</button>
+      <button class="nav-link m-2 top-tab" id="owner-tab" data-bs-toggle="tab" data-bs-target="#owner" type="button" role="tab" aria-controls="owner" aria-selected="false">My monuments' bookings</button>
+
     </li>
   </ul>
+
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="home-tab">
+
+    <div class="tab-pane fade show active cont-onglets" id="bookings" role="tabpanel" aria-labelledby="home-tab">
       <%# Div des bookings %>
       <h2 class="p-2"> Get ready for the party of your lifetime. </h2>
       <div class="my-bookings">
       <% @bookings.each do |booking| %>
         <div class="card m-3">
           <div class="card-body">
-            <h5 class="card-title"> <%= "You're all set! Going to #{booking.monument.name}, from #{booking.arrival_date} to #{booking.departure_date}" %> </h5>
-            <p> <i class="fa-solid fa-users"></i> Staying with <%= booking.number_of_guests %> guests</p>
-            <p> <i class="fa-solid fa-money-bill"></i> Total price: £<%= booking.price %> </p>
+            <h5 class="card-title"> <strong> <%= "Your booking of #{booking.monument.name}, from #{(booking.arrival_date).strftime('%B, %d')} to #{(booking.departure_date).strftime('%B, %d %Y')}." %> </strong> </h5>
+            <%= cl_image_tag booking.monument.photo.key, :class => "monu-image", :transformation => { height: 200, crop: :pad } %>
+            <p class="m-4"> <i class="fa-solid fa-users"></i>   Staying with <%= booking.number_of_guests %> guests</p>
+            <p class="m-4"> <i class="fa-solid fa-money-bill"></i>   Total price: £<%= number_with_delimiter(booking.price) %> </p>
+            <p> Booking status: <%= booking.booking_status %> </p>
             <p> Your special request:</p>
             <p class="card-text alert alert-warning mt-4"> <%= booking.user_request %></p>
           </div>
@@ -28,6 +34,7 @@
       <% end %>
       </div>
     </div>
+
     <div class="tab-pane fade cont-onglets" id="monuments" role="tabpanel" aria-labelledby="profile-tab">
       <div class="row row-cols-1 row-cols-md-3 g-4 pt-3">
         <% @owner_monuments.each do |monument| %>
@@ -39,7 +46,7 @@
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
                 <p class="fw-light"><%= monument.theme %></p>
                 <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
-                <%= button_to "More info", monument, method: :get, class:"btn btn-primary stretched-link" %>
+                <%= button_to "More info", monument, method: :get, class:"btn btn-primary stretched-link small-btn" %>
               </div>
             </div>
           </div>
@@ -51,29 +58,28 @@
           <% end %>
         </div>
     </div>
-    <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+
+    <div class="tab-pane fade cont-onglets" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <h2 class="p-2"> <%= current_user.first_name %>, you have some parties soon happening in your monuments! </h2>
       <div class="my-bookings">
+      
       <% @owner_bookings.each do |booking| %>
         <div class="card m-3">
           <div class="card-body">
-            <h5 class="card-title"> <%= "#{booking.monument.name} -  £#{number_with_delimiter(booking.price)} - #{booking.number_of_guests} total guests staying a total of #{booking.days} nights, from #{booking.arrival_date} to #{booking.departure_date}" %> </h5>
-            <p> User special request:</p>
-            <p class="card-text alert alert-warning mt-4"> <%= booking.user_request %></p>
-            <a href="#" class="btn btn-success">Accept</a>
-            <a href="#" class="btn btn-danger">Decline</a>
-          </div>
+            <h5 class="card-title"> <strong> <%= "#{booking.user.first_name} has booked #{booking.monument.name} and plans on staying #{booking.days} nights, from #{(booking.arrival_date).strftime('%B, %d')} to #{(booking.departure_date).strftime('%B, %d %Y')}" %> </strong> </h5>
+            <%= cl_image_tag booking.monument.photo.key, :class => "monu-image m-3", :transformation => { height: 200, crop: :pad } %>
+            <p class="m-3"> <strong>Total price:</strong> £<%= number_with_delimiter(booking.price) %></p>
+            <p class="m-3"> <strong>Number of guests:</strong> <%= booking.number_of_guests %></p>
+            <p class="m-3"> <strong>User special request:</strong> <span class="fst-italic"> <%= booking.user_request %></span> </p>
+            <p class="m-3"> <strong>Status:</strong> <%= booking.booking_status %> </p>
+            <li class="card-text d-flex"><%= button_to 'Accept', accept_booking_path(booking), class: "btn btn-success m-1",  method: :patch %>  <%= button_to 'Decline', decline_booking_path(booking), class:"btn btn-danger m-1", method: :patch %>
+            </div>
+
         </div>
       <% end %>
       </div>
+
     </div>
   </div>
-     <div class="cards-bookings">
-        <% @bookings.each do |booking| %>
-        <div class= "card-body">
-          <li class="card-title"><strong><%= booking.user.email %></strong> booked <%= booking.monument.name %> from <strong><%= booking.arrival_date %></strong> to <strong><%= booking.departure_date %></strong>.</li>
-          <li class="card-text d-flex"><%= button_to '✔', accept_booking_path(booking), class: "text-success",  method: :patch%> - <%= button_to '❌', decline_booking_path(booking), class:"text-danger", method: :patch%>. Status: <strong></strong><%= booking.booking_status %></strong></li>
-        </div>
-        <% end %>
-      </div>
+
 </div>

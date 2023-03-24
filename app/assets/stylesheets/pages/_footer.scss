@@ -6,10 +6,11 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  border-top: 1px solid rgb(148, 147, 147);
+  border-top: 1px solid #DFA67B;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   position: sticky;
+  background-color: #F4B183;
 }
 .footer-links {
   display: flex;
@@ -25,7 +26,7 @@
 .footer-links a:hover {
   opacity: 1;
   transition: 0.3s;
-  color: yellow;
+  color: #FFD966;
 }
 
 .footer-obligations {
@@ -40,5 +41,5 @@
 }
 .footer-obligations a:hover {
   transition: 0.3s;
-  color: yellow;
+  color: #FFD966;
 }
