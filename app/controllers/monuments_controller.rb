@@ -1,7 +1,11 @@
 class MonumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @monuments = Monument.excluding(current_user.monuments)
+    if params[:query].present?
+      @monuments = Monument.excluding(current_user.monuments).where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @monuments = Monument.excluding(current_user.monuments)
+    end
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,
@@ -14,6 +18,7 @@ class MonumentsController < ApplicationController
   def show
     @monument = Monument.find(params[:id])
     @booking = Booking.new
+    @markers = {lat: @monument.latitude, lng: @monument.longitude, info_window_html: render_to_string(partial: "info_window", locals: { monument: @monument })}
   end
 
   def new

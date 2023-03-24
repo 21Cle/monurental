@@ -1,30 +1,80 @@
-<div class="container p-2">
-  <h2>Party through time and history - rent our monuments for unforgettable events!</h2>
-  <div class="row mt-3 mb-3">
-    <div class="col-8">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @monuments.each do |monument| %>
-          <div class="col">
-            <div class="card h-100 shadow-sm" type="button">
-              <%= cl_image_tag monument.photo.key, crop: :fill, class:"card-img-top" %>
-              <div class="card-body">
-                <h5 class="card-title"><%= monument.name %></h5>
-                <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
-                <p class="fw-light"><%= monument.theme %></p>
-                <p class="fw-semibold">£<%= number_with_delimiter(monument.price_per_night) %> per night</p>
-                <%= button_to "More info", monument, method: :get, class:"btn btn-primary stretched-link small-btn" %>
+<style>
+  #thetest {
+    display: flex;
+    height: 100vh;
+    /*position: sticky;*/
+  }
+
+  .listBtn {
+    display: flex;
+    position: fixed;
+    /*position: sticky;*/
+    bottom: 30px;
+    left: 500px;
+  }
+
+  /*.container {
+    position: relative;
+    display: flex;
+    height: 100vh;
+  }*/
+</style>
+<div id="monumentLstCont">
+  <div id="el1" hidden>
+    <div class="container p-2">
+      <h2>Party through time and history - rent our monuments for unforgettable events!</h2>
+      <div class="row mt-3 mb-3">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <% @monuments.each do |monument| %>
+            <div class="col">
+              <div class="card h-100 shadow-sm" type="button">
+                <%= cl_image_tag monument.photo.key, crop: :fill, class:"card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= monument.name %></h5>
+                  <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
+                  <p class="fw-light"><%= monument.theme %></p>
+                  <p class="fw-semibold"><%= monument.price_per_night %>£ per night</p>
+                  <%= button_to "More info", monument, method: :get, class:"btn btn-primary" %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="border rounded" style="width: 100%; height: 100%;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <% end %>
+        </div>
+        <div class="w-25 listBtn">
+          <%= form_with url: monuments_path, method: :get, class: "input-group" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control w-50", placeholder: "Search..." %>
+            <%= submit_tag "Search", class: "btn btn-secondary w-25" %>
+            <button class="btn btn-secondary w-25" type="button" id="viewmap"><i class="fa-solid fa-map-location-dot fa-sm" style="color: #ffffff;"></i>  See Map</button>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <div id="el2">
+    <div id="thetest" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <%= form_with url: monuments_path, method: :get, class: "input-group w-25 listBtn" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control w-50", placeholder: "Search..." %>
+      <%= submit_tag "Search", class: "btn btn-secondary w-25" %>
+      <button class="btn btn-secondary w-25" id="viewlist" type="button"><i class="fa-solid fa-list-ul" style="color: #ffffff;"></i>  See List</button>
+    <% end %>
+  </div>
 </div>
+<script type="text/javascript">
+  console.log("Test001");
+  const wholeList = document.getElementById('el1');
+  const wholeMap = document.getElementById('el2');
+  const setMap = document.getElementById('viewmap');
+  const setList = document.getElementById('viewlist');
+  setMap.addEventListener('click', (event) => {
+    console.log("Test002");
+    wholeMap.removeAttribute('hidden');
+    wholeList.hidden = true;
+  });
+
+  setList.addEventListener('click', (event) => {
+    console.log("Test003")
+    wholeList.removeAttribute('hidden');
+    wholeMap.hidden = true;
+  });
+</script>
