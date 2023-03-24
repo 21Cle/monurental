@@ -11,7 +11,7 @@
                 <h5 class="card-title"><%= monument.name %></h5>
                 <p class="card-text"><small class="text-muted"><i><%= monument.city %>, <%= monument.country %></i></small></p>
                 <p class="fw-light"><%= monument.theme %></p>
-                <p class="fw-semibold"><%= monument.price_per_night %>£/night</p>
+                <p class="fw-semibold">£<%= number_with_delimiter(monument.price_per_night) %> per night</p>
                 <%= button_to "More info", monument, method: :get, class:"btn btn-primary stretched-link small-btn" %>
               </div>
             </div>

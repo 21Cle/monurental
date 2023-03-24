@@ -22,6 +22,6 @@ export default class extends Controller {
     const numberOfDays = timeDifference / (1000*3600*24)
 
     const totalPrice = (pricePerNight * numberOfDays).toLocaleString('en-US')
-    this.priceTarget.innerHTML = `<p> <strong> Total Price: </strong> £${totalPrice} </p>`
+    this.priceTarget.innerHTML = `<p class="fs-4"> <strong> Total Price: <span class="fs-3" style="color:#F4B183"> £${totalPrice} </strong> </span> </p>`
   }
 }
