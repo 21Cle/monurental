@@ -1,15 +1,27 @@
 .top-tab {
-  box-shadow: 1px 0px lightgray;
-  padding-bottom: 20px;
-  margin-top: 5px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  box-shadow: 1px 0px lightgray !important;
+  padding-bottom: 20px !important;
+  margin-top: 5px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .cont-onglets {
   padding: 50px;
+  margin-top: -8px;
   margin-bottom: 50px;
   border-radius: 5px;
-  border-top-left-radius: 0;
   box-shadow: 1px 1px 6px grey;
+}
+
+.cont-new {
+  padding: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px grey;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
 }
