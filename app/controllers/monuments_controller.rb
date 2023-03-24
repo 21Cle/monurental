@@ -1,7 +1,7 @@
 class MonumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @monuments = Monument.all
+    @monuments = Monument.excluding(current_user.monuments)
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,
