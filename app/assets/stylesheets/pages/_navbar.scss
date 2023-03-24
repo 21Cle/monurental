@@ -4,11 +4,12 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 0px 50px;
+  background-color: #F4B183;
 }
 
 .nav-link {
 background-color: rgb(222, 207, 168);
-border: solid rgb(148, 147, 147) 1px;
+border: solid #DFA67B 1px;
 font-weight: bold;
 border-radius: 10px;
 margin-right: 40px;
@@ -17,5 +18,16 @@ padding: 10px;
 
 .nav-link:hover {
   transition: 0.3s;
-  background-color: yellow;
+  background-color: #FFD966;
 }
+
+
+.navbar-brand img {
+  border-radius: 2px;
+}
+
+
+// FFF2CC
+// FFD966
+// F4B183
+// DFA67B
