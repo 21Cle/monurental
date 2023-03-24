@@ -27,7 +27,7 @@
      </div>
       <%= button_to "Back to list", monuments_path(@monuments), method: :get, class:"btn btn-primary small-btn" %>
     </div>
-      <div class="border rounded shadow-sm pt-3 pb-3 col-3 m-2 position-sticky top-0" style="max-height: calc(85vh - 85px); overflow: auto;">
+      <div class="border rounded shadow-sm pt-3 pb-3 col-3 m-2 position-sticky top-0" style="max-height: calc(95vh - 85px); overflow: auto;">
        <div class="d-flex justify-content-between">
         <h3><strong>£<%= number_with_delimiter(@monument.price_per_night) %></strong> per night</h3>
         <p><i class="fa-solid fa-star-half-stroke"></i>  <%= @monument.rating %></p>
