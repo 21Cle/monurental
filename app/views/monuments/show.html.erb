@@ -5,31 +5,39 @@
     </div>
   </div>
   <div class="row gx-5">
-    <div class="border rounded shadow-sm pt-3 pb-3 col-8">
+    <div class="border rounded shadow-sm pt-3 pb-3 col-8 m-2">
       <div class="pb-2 mb-2 border-bottom">
       <h2><%= @monument.name %></h2>
       <p class="card-text"><small class="text-muted"><i class="fa-solid fa-map-pin"></i>    <i><%= @monument.address %> - <%= @monument.country %></i></small></p>
       <p class="card-text"><small class="text-muted"><i class="fa-solid fa-people-group"></i>    <%= @monument.capacity %></small></p>
       </div>
       <div class="pb-2 mb-2 border-bottom">
-      <p class="fw-light"><%= @monument.description %></p>
+      <p class="fw-light"><%= simple_format(@monument.description) %></p>
       </div>
-      <div class="pb-2 mb-5 border-bottom">
-      <p class="fw-light"><strong><i class="fa-solid fa-list-ul"></i>    Utilities: </strong><%= @monument.utilities %></p>
-      </div>
+   <div class="pb-2 mb-5 border-bottom">
+  <% the_utilities = JSON.parse(@monument.utilities) %>
+  <p class="fw-light"><strong><i class="fa-solid fa-list-ul"></i>Utilities:</strong></p>
+    <% the_utilities.each_slice(4) do |group| %>
+    <div class="row">
+        <% group.each do |utility| %>
+        <div class="col-sm-3"><%= utility.capitalize %></div>
+         <% end %>
+    </div>
+    <% end %>
+     </div>
       <%= button_to "Back to list", monuments_path(@monuments), method: :get, class:"btn btn-primary small-btn" %>
     </div>
-    <div class="border rounded shadow-sm pt-3 pb-3 col-4">
-      <div class="d-flex justify-content-between">
-        <h3><strong><%= @monument.price_per_night %></strong>£/night</h3>
+      <div class="border rounded shadow-sm pt-3 pb-3 col-3 m-2 position-sticky top-0" style="max-height: calc(85vh - 85px); overflow: auto;">
+       <div class="d-flex justify-content-between">
+        <h3><strong>£<%= number_with_delimiter(@monument.price_per_night) %></strong> per night</h3>
         <p><i class="fa-solid fa-star-half-stroke"></i>  <%= @monument.rating %></p>
       </div>
 
       <div data-controller="booking" data-booking-price-value=<%= @monument.price_per_night %> >
         <%= simple_form_for([@monument, @booking]) do |f| %>
-        <%= f.input :arrival_date, as: :string, input_html: { data: { controller: "datepicker", booking_target: "start", action: "input->booking#calculatePrice" }  } %>
+        <%= f.input :arrival_date, as: :string, input_html: { data: { controller: "datepicker", booking_target: "start" }  } %>
         <%= f.input :departure_date, as: :string, input_html: { data: { controller: "datepicker", booking_target: "end", action: "input->booking#calculatePrice" } } %>
-        <%= f.input :number_of_guests, collection: 1..12 %>
+        <%= f.input :number_of_guests, collection: 1..1000 %>
         <%= f.input :user_request, placeholder: "Any special request so we can set up the best party of your life?" %>
 
         <p data-booking-target="price">Total price: </p>
